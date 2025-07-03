@@ -1,0 +1,4 @@
+build/
+*.txt
+*.kdev4
+.kdev4/
