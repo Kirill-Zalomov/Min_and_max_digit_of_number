@@ -14,15 +14,17 @@ class Application {
     private: std::unique_ptr<ApplicationConfig> application_config_;
 
 
-    // Методы
+    // Конструкторы и операторы
     Application(const Application &application) = delete;
     Application& operator=(const Application &application) = delete;
 
-    public: Application(Application&&) noexcept = default;
-    public: Application& operator=(Application&&) noexcept = default;
-
-    public: Application(std::unique_ptr<ApplicationConfig> application_config);
+    public: explicit Application(std::unique_ptr<ApplicationConfig> application_config);
+    // public: Application(Application&&) noexcept = default;
+    // public: Application& operator=(Application&&) noexcept = default;
     public: virtual ~Application() = default;
+
+
+    // Методы
     public: virtual int run();
 
 };
