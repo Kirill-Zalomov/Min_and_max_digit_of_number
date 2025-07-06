@@ -19,8 +19,6 @@ class Application {
     Application& operator=(const Application &application) = delete;
 
     public: explicit Application(std::unique_ptr<ApplicationConfig> application_config);
-    // public: Application(Application&&) noexcept = default;
-    // public: Application& operator=(Application&&) noexcept = default;
     public: virtual ~Application() = default;
 
 
