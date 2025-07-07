@@ -63,12 +63,14 @@ BOOST_AUTO_TEST_CASE(does_input_have_rigth_size_test) {
 BOOST_AUTO_TEST_CASE(is_input_correct_test) {
     NumericInputValidator niv;
 
-    BOOST_TEST_CHECK( niv.is_input_correct("123") );
+    BOOST_TEST_CHECK( niv.is_input_correct("0") );
     BOOST_TEST_CHECK( niv.is_input_correct("1") );
+    BOOST_TEST_CHECK( niv.is_input_correct("123") );
     BOOST_TEST_CHECK( niv.is_input_correct("1276481748721744327898472781824") );
 
     BOOST_TEST_CHECK( !niv.is_input_correct("") );
 
+    BOOST_TEST_CHECK( !niv.is_input_correct("03") );
     BOOST_TEST_CHECK( !niv.is_input_correct("000000") );
     BOOST_TEST_CHECK( !niv.is_input_correct("000123") );
     BOOST_TEST_CHECK( !niv.is_input_correct("0333330") );

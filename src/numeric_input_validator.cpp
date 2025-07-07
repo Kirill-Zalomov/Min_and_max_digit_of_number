@@ -10,9 +10,10 @@ bool NumericInputValidator::is_input_correct ( const std::string &input ) const 
     if(input.empty()) return false;
 
     bool first_symbol = true;
+    size_t input_size = input.size();
     for(auto iterator = input.cbegin(); iterator != input.cend(); ++iterator) {
         if(first_symbol) {
-            if(!is_digit(*iterator) || (*iterator == '0')) return false;
+            if(!is_digit(*iterator) || ((*iterator == '0') && (input_size > 1))) return false;
             first_symbol = false;
         }
         else{
