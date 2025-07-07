@@ -8,13 +8,12 @@
 class InputValidator {
 
     // Конструкторы и операторы
-    public: InputValidator();
-    public: virtual ~InputValidator();
+    public: virtual ~InputValidator() = default;
 
 
     // Методы
-    public: virtual bool is_input_correct(const std::string &input) const;
-    public: virtual bool does_input_have_rigth_size(const std::string &input, const size_t &min_size, const size_t &max_size) const;
+    public: virtual bool is_input_correct(const std::string &input) const = 0;
+    public: virtual bool does_input_have_right_size(const std::string &input, const size_t &min_size, const size_t &max_size) const = 0;
 
 };
 
