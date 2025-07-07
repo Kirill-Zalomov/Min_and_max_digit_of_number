@@ -7,7 +7,7 @@
 
 class MinMaxFinder {
 
-    public: MinMaxFinder() = default;
+    // Методы
     public: uint8_t find_min_digit(uint32_t number) const noexcept;
     public: uint8_t find_max_digit(uint32_t number) const noexcept;
 

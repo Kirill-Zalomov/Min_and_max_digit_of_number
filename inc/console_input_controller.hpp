@@ -7,10 +7,6 @@
 
 class ConsoleInputCotroller : public InputController {
 
-    // Конструкторы и операторы
-    public: ConsoleInputCotroller();
-
-
     // Методы
     public: void print_message(const std::string &message) const override;
     public: void read_message(std::string &buffer, const size_t &input_size) const override;

@@ -15,9 +15,6 @@ class MinMaxConsoleApplicationConfigBuilder {
     private: std::string application_name_ = "application";
     private: std::string application_version_ = "0.0.1";
 
-    // Конструкторы и операторы
-    public: MinMaxConsoleApplicationConfigBuilder() = default;
-
 
     // Методы
     public: MinMaxConsoleApplicationConfigBuilder& set_min_input_length(const size_t &min_input_length) noexcept;

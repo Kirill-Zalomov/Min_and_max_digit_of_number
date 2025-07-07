@@ -15,10 +15,6 @@ class MinMaxConsoleApplicationConfig : public ApplicationConfig {
     size_t max_input_length_;
 
 
-    // Конструкторы и операторы
-    public: MinMaxConsoleApplicationConfig();
-
-
     // Методы
     public: void set_min_input_length(const size_t &min_input_length) noexcept;
     public: void set_max_input_length(const size_t &max_input_length) noexcept;
