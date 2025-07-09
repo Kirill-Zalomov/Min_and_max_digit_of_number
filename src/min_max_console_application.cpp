@@ -40,7 +40,7 @@ int MinMaxConsoleApplication::run() {
         }
     }
 
-    std::string user_input { *buffer };
+    std::string user_input { buffer };
     uint32_t number {0};
     uint8_t  max_digit {0};
     uint8_t  min_digit {0};
@@ -53,11 +53,11 @@ int MinMaxConsoleApplication::run() {
     min_digit = minMaxFinder.find_min_digit(number);
 
     console.print_symbol('\n');
-    console.print_message("Max digit: ");
-    console.print_symbol(static_cast<char>(max_digit + '0'));
-    console.print_symbol('\n');
     console.print_message("Min digit: ");
     console.print_symbol(static_cast<char>(min_digit + '0'));
+    console.print_symbol('\n');
+    console.print_message("Max digit: ");
+    console.print_symbol(static_cast<char>(max_digit + '0'));
     console.print_symbol('\n');
 
     console.print_message("\n\nPress any key to exit..\n\n");
