@@ -1,7 +1,7 @@
-#include <iostream>
-#include <cstdint>
+#include "min_max_console_application.hpp"
 
 
 int main() {
-    return 0;
+    MinMaxConsoleApplication application;
+    return application.run();
 }
