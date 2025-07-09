@@ -1,7 +1,7 @@
-#include "input_parser.hpp"
+#include "numeric_input_parser.hpp"
 
 
-void InputParser::check_correctness_of_input ( const std::string& input ) const {
+void NumericInputParser::check_correctness_of_input ( const std::string& input ) const {
     InputValidator* validator = new NumericInputValidator();
 
     if( !validator->does_input_have_right_size(input, 1, 8) ) {
@@ -18,7 +18,7 @@ void InputParser::check_correctness_of_input ( const std::string& input ) const 
 
 
 
-uint32_t InputParser::parse_string_to_uint32(const std::string &input) const {
+uint32_t NumericInputParser::parse_string_to_uint32(const std::string &input) const {
     check_correctness_of_input(input);
 
     uint32_t result {0};

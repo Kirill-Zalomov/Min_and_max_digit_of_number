@@ -2,14 +2,14 @@
 #include <boost/test/unit_test.hpp>
 
 
-#include "input_parser.hpp"
+#include "numeric_input_parser.hpp"
 
 
 BOOST_AUTO_TEST_SUITE(InputParserTests);
 
 
 BOOST_AUTO_TEST_CASE(parse_string_to_uint32_test) {
-    InputParser parser;
+    NumericInputParser parser;
 
 
     BOOST_REQUIRE_NO_THROW( parser.parse_string_to_uint32("0") );

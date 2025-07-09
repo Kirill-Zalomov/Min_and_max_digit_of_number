@@ -5,7 +5,7 @@
 #include "abstraction/application.hpp"
 #include "console_input_controller.hpp"
 #include "numeric_input_validator.hpp"
-#include "input_parser.hpp"
+#include "numeric_input_parser.hpp"
 #include "min_max_finder.hpp"
 
 
@@ -18,7 +18,7 @@ class MinMaxConsoleApplication : private Application {
     // Поля
     private: ConsoleInputCotroller console_;
     private: NumericInputValidator input_validator_;
-    private: InputParser input_parser_;
+    private: NumericInputParser input_parser_;
     private: MinMaxFinder min_max_finder_;
     private: std::string user_input_;
     private: uint32_t number_;
