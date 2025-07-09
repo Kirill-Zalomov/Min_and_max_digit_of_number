@@ -2,16 +2,21 @@
 #define MIN_MAX_CONSOLE_APPLICATION_HPP
 
 
-#include <string>
-
-
 #include "abstraction/application.hpp"
-#include "min_max_console_application_config.hpp"
+#include "console_input_controller.hpp"
+#include "numeric_input_validator.hpp"
+#include "input_parser.hpp"
+#include "min_max_finder.hpp"
 
 
-class MinMaxConsoleApplication : public Application {
+#include <string>
+#include <ncurses.h>
 
-    public: MinMaxConsoleApplication(std::unique_ptr<MinMaxConsoleApplicationConfig> application_config);
+
+class MinMaxConsoleApplication : private Application {
+
+    // Методы
+    private: void init() override;
     public: int run() override;
 
 };

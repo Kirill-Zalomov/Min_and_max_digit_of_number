@@ -8,13 +8,12 @@
 class InputController {
 
     // Конструкторы и операторы
-    public: InputController();
-    public: virtual ~InputController();
+    public: virtual ~InputController() = default;
 
 
     // Методы
-    public: virtual void print_message(const std::string &message) const;
-    public: virtual void read_message(std::string &buffer, const size_t &input_size) const;
+    public: virtual void print_message(const std::string &message) const = 0;
+    public: virtual void read_message(std::string &buffer, const size_t &input_size) const = 0;
 
 };
 

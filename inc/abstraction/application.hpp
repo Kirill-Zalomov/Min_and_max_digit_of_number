@@ -5,25 +5,15 @@
 #include <memory>
 
 
-#include "application_config.hpp"
-
-
 class Application {
 
-    // Поля
-    private: std::unique_ptr<ApplicationConfig> application_config_;
-
-
     // Конструкторы и операторы
-    Application(const Application &application) = delete;
-    Application& operator=(const Application &application) = delete;
-
-    public: explicit Application(std::unique_ptr<ApplicationConfig> application_config);
     public: virtual ~Application() = default;
 
 
     // Методы
-    public: virtual int run();
+    protected: virtual void init() = 0;
+    public: virtual int run() = 0;
 
 };
 
