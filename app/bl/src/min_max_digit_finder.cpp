@@ -1,7 +1,7 @@
-#include "min_max_finder.hpp"
+#include "min_max_digit_finder.hpp"
 
 
-uint8_t MinMaxFinder::find_min_digit(uint32_t number) const noexcept {
+uint8_t MinMaxDigitFinder::find_min_digit(uint32_t number) const noexcept {
     uint8_t current_digit {0};
     uint8_t min_digit {9};
 
@@ -17,7 +17,7 @@ uint8_t MinMaxFinder::find_min_digit(uint32_t number) const noexcept {
 }
 
 
-uint8_t MinMaxFinder::find_max_digit(uint32_t number) const noexcept {
+uint8_t MinMaxDigitFinder::find_max_digit(uint32_t number) const noexcept {
     uint8_t current_digit {0};
     uint8_t max_digit {0};
 

@@ -12,27 +12,34 @@ void MinMaxConsoleApplication::init() {
 
 
 void MinMaxConsoleApplication::print_invitation_message() {
-    console_.print_message("Print number: ");
+    ConsoleOutputController *coc;
+    *coc = console_;
+    coc->print_line("Print number: ");
 }
 
 
 void MinMaxConsoleApplication::get_user_input() {
+    ConsoleOutputController *coc;
+    *coc = console_;
+
+    ConsoleInputController *cic;
+    *cic = console_;
 
     char buffer[8] {0}, current_char {0};
     size_t digits_in_buffer {0};
 
     while( digits_in_buffer < 8 ) {
-        current_char = console_.get_symbol_without_echo();
+        current_char = cic->read_symbol_without_echo();
 
         if ( current_char == ENTER && digits_in_buffer > 0 ) break;
         else if(  current_char == '0' && digits_in_buffer == 0 ) continue;
         else if ( input_validator_.is_digit( current_char ) ) {
-            console_.print_symbol(current_char);
+            coc->print_symbol(current_char);
             buffer[digits_in_buffer] = current_char;
             digits_in_buffer++;
         }
         else if ( current_char == BACKSPACE && digits_in_buffer > 0 ) {
-            console_.print_symbol(BACKSPACE);
+            coc->print_symbol(BACKSPACE);
             buffer[digits_in_buffer] = '\0';
             digits_in_buffer--;
         }
@@ -44,23 +51,29 @@ void MinMaxConsoleApplication::get_user_input() {
 
 
 void MinMaxConsoleApplication::process_user_input() {
-    input_validator_.does_input_have_right_size(user_input_, 1, 8);
-    input_validator_.is_input_correct(user_input_);
+    input_validator_.does_content_have_right_size(user_input_, 1, 8);
+    input_validator_.is_content_valid(user_input_);
 
-    number_ = input_parser_.parse_string_to_uint32(user_input_);
+    number_ = *(input_parser_.parse(user_input_));
     max_digit_ = min_max_finder_.find_max_digit(number_);
     min_digit_ = min_max_finder_.find_min_digit(number_);
 }
 
 
 void MinMaxConsoleApplication::print_result() {
-    console_.print_message("\nMin digit: ");
-    console_.print_symbol(static_cast<char>(min_digit_ + '0'));
-    console_.print_message("\nMax digit: ");
-    console_.print_symbol(static_cast<char>(max_digit_ + '0'));
+    ConsoleOutputController *coc;
+    *coc = console_;
 
-    console_.print_message("\n\n\nPress any key to exit..\n\n");
-    console_.get_symbol_without_echo();
+    ConsoleInputController *cic;
+    *cic = console_;
+
+    coc->print_line("\nMin digit: ");
+    coc->print_symbol(static_cast<char>(min_digit_ + '0'));
+    coc->print_line("\nMax digit: ");
+    coc->print_symbol(static_cast<char>(max_digit_ + '0'));
+
+    coc->print_line("\n\n\nPress any key to exit..\n\n");
+    cic->read_symbol_without_echo();
 }
 
 

@@ -2,24 +2,27 @@
 #define MIN_MAX_CONSOLE_APPLICATION_HPP
 
 
-#include "abstraction/application.hpp"
-#include "console_input_controller.hpp"
-#include "numeric_input_validator.hpp"
-#include "numeric_input_parser.hpp"
-#include "min_max_finder.hpp"
+#include "interfaces/application.hpp"
+#include "io/inc/console_io_controller.hpp"
+#include "bl/inc/validator_of_string_with_positive_number.hpp"
+#include "bl/inc/positive_number_parser.hpp"
+#include "bl/inc/min_max_digit_finder.hpp"
 
 
 #include <string>
+#include <cstdint>
 #include <ncurses.h>
+#include <optional>
 
 
 class MinMaxConsoleApplication : private Application {
 
     // Поля
-    private: ConsoleInputCotroller console_;
-    private: NumericInputValidator input_validator_;
-    private: NumericInputParser input_parser_;
-    private: MinMaxFinder min_max_finder_;
+    private: ConsoleIOCotroller console_;
+    private: ValidatorOfStringWithPositiveNumber input_validator_;
+    private: PositiveNumberParser input_parser_;
+    private: MinMaxDigitFinder min_max_finder_;
+
     private: std::string user_input_;
     private: uint32_t number_;
     private: uint8_t  max_digit_;
@@ -32,8 +35,8 @@ class MinMaxConsoleApplication : private Application {
 
     // Методы
     public: int run() override;
-
     private: void init() override;
+
     private: void print_invitation_message();
     private: void get_user_input();
     private: void process_user_input();

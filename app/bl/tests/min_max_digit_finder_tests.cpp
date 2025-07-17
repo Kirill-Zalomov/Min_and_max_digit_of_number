@@ -1,10 +1,12 @@
 #define BOOST_TEST_DYN_LINK
+
+
 #include <boost/test/unit_test.hpp>
 #include <boost/test/data/test_case.hpp>
 #include <boost/test/data/monomorphic.hpp>
 
 
-#include "min_max_finder.hpp"
+#include "min_max_digit_finder.hpp"
 
 
 namespace bdata = boost::unit_test::data;
@@ -27,8 +29,8 @@ BOOST_DATA_TEST_CASE( find_min_digit_test,
     input, expected
 )
 {
-    MinMaxFinder mmf;
-    BOOST_CHECK(mmf.find_min_digit(input) == expected);
+    MinMaxDigitFinder mmdf;
+    BOOST_CHECK(mmdf.find_min_digit(input) == expected);
 }
 
 
@@ -46,8 +48,8 @@ BOOST_DATA_TEST_CASE( find_max_digit_test,
     input, expected
 )
 {
-    MinMaxFinder mmf;
-    BOOST_CHECK(mmf.find_max_digit(input) == expected);
+    MinMaxDigitFinder mmdf;
+    BOOST_CHECK(mmdf.find_max_digit(input) == expected);
 }
 
 

@@ -4,13 +4,13 @@
 #include <boost/test/data/monomorphic.hpp>
 
 
-#include "numeric_input_validator.hpp"
+#include "validator_of_string_with_positive_number.hpp"
 
 
 namespace bdata = boost::unit_test::data;
 
 
-BOOST_AUTO_TEST_SUITE(NumericInputValidatorTests)
+BOOST_AUTO_TEST_SUITE(ValidatorOfStringWithPositiveNumberTests)
 
 
 // Тесты для is_digit()
@@ -19,8 +19,8 @@ BOOST_DATA_TEST_CASE( is_digit_true_test,
     digit
 )
 {
-    NumericInputValidator niv;
-    BOOST_CHECK(niv.is_digit(digit));
+    ValidatorOfStringWithPositiveNumber validator;
+    BOOST_CHECK(validator.is_digit(digit));
 }
 
 
@@ -29,8 +29,8 @@ BOOST_DATA_TEST_CASE( is_digit_false_test,
     not_digit
 )
 {
-    NumericInputValidator niv;
-    BOOST_CHECK(!niv.is_digit(not_digit));
+    ValidatorOfStringWithPositiveNumber validator;
+    BOOST_CHECK( !validator.is_digit(not_digit) );
 }
 
 
@@ -48,18 +48,18 @@ BOOST_DATA_TEST_CASE( does_input_have_right_size_valid_args_test,
     input_str, min_size, max_size, expected
 )
 {
-    NumericInputValidator niv;
-    BOOST_CHECK(niv.does_input_have_right_size(input_str, min_size, max_size) == expected);
-    BOOST_CHECK_NO_THROW(niv.does_input_have_right_size(input_str, min_size, max_size));
+    ValidatorOfStringWithPositiveNumber validator;
+    BOOST_CHECK(validator.does_content_have_right_size(input_str, min_size, max_size) == expected);
+    BOOST_CHECK_NO_THROW(validator.does_content_have_right_size(input_str, min_size, max_size));
 }
 
 
 // Тест для does_input_have_right_size() с невалидными аргументами
 BOOST_AUTO_TEST_CASE(does_input_have_right_size_invalid_args_test) {
-    NumericInputValidator niv;
+    ValidatorOfStringWithPositiveNumber validator;
 
     BOOST_CHECK_EXCEPTION(
-        niv.does_input_have_right_size("", 8, 1),
+        validator.does_content_have_right_size("", 8, 1),
         std::invalid_argument,
         [](const std::invalid_argument& ex) {
             return std::string(ex.what()) == "the minimum size cannot be larger than the maximum";
@@ -79,8 +79,8 @@ BOOST_DATA_TEST_CASE( is_input_correct_true_test,
     input_str
 )
 {
-    NumericInputValidator niv;
-    BOOST_CHECK(niv.is_input_correct(input_str));
+    ValidatorOfStringWithPositiveNumber validator;
+    BOOST_CHECK(validator.is_content_valid(input_str));
 }
 
 
@@ -100,8 +100,9 @@ BOOST_DATA_TEST_CASE( is_input_correct_false_test,
     input_str
 )
 {
-    NumericInputValidator niv;
-    BOOST_CHECK(!niv.is_input_correct(input_str));
+    ValidatorOfStringWithPositiveNumber validator;
+    BOOST_CHECK(!validator.is_content_valid(input_str));
 }
+
 
 BOOST_AUTO_TEST_SUITE_END()

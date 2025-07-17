@@ -1,0 +1,7 @@
+build/
+
+**/*.txt
+!module_description.txt
+
+*.kdev4
+.kdev4/
